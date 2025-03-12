@@ -79,27 +79,27 @@ const SpeedTest: React.FC = () => {
           </p>
         </div>
         
-        {!isLoading && !testComplete && (
-          <div className={cn(
-            'flex flex-col items-center justify-center',
-            staggerAnimation ? 'stagger-visible' : ''
-          )}>
-            <button
-              onClick={handleStartTest}
-              disabled={isLoading}
-              className="speed-test-btn group mt-6 animate-pulse-scale"
-            >
-              <span className="relative z-10 flex items-center">
-                <Play className="mr-2" size={20} />
-                Start Speed Test
-              </span>
-              <span className="speed-test-btn-ripple"></span>
-            </button>
-            <p className="text-sm text-foreground/60 mt-4">
-              The test will take about 30 seconds to complete
-            </p>
-          </div>
-        )}
+        {/* Start Test Button - Always visible */}
+        <div className={cn(
+          'flex flex-col items-center justify-center',
+          staggerAnimation ? 'stagger-visible' : '',
+          isLoading || testComplete ? 'opacity-0 h-0 overflow-hidden' : 'opacity-100'
+        )}>
+          <button
+            onClick={handleStartTest}
+            disabled={isLoading}
+            className="speed-test-btn group mt-6 animate-pulse-scale hover:scale-105 transition-transform"
+          >
+            <span className="relative z-10 flex items-center">
+              <Play className="mr-2" size={20} fill="white" />
+              Start Speed Test
+            </span>
+            <span className="speed-test-btn-ripple"></span>
+          </button>
+          <p className="text-sm text-foreground/60 mt-4">
+            The test will take about 30 seconds to complete
+          </p>
+        </div>
         
         {isLoading && (
           <div className="flex flex-col items-center justify-center w-full animate-fade-in">
@@ -158,8 +158,7 @@ const SpeedTest: React.FC = () => {
             <div className="flex justify-center mt-8">
               <Button
                 onClick={handleStartTest}
-                className="flex items-center"
-                variant="outline"
+                className="flex items-center bg-primary text-white px-6 py-3 rounded-full hover:bg-primary/90 transition-colors"
               >
                 <RefreshCw className="mr-2" size={16} />
                 Run Test Again
