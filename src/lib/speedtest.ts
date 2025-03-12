@@ -1,3 +1,4 @@
+
 import { toast } from "sonner";
 
 export interface TestResult {
@@ -15,79 +16,169 @@ interface SpeedTestOptions {
   onProgress?: (progress: number, phase: 'download' | 'upload' | 'ping') => void;
 }
 
-// Function to simulate ISP detection (in a real application, you would use a geolocation API)
-export function detectISP(): Promise<{ isp: string; location: string }> {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve({
-        isp: "Example Internet Provider",
-        location: "New York, US",
+// Function to get client's IP and location info
+export async function detectISP(): Promise<{ isp: string; location: string }> {
+  try {
+    const response = await fetch('https://ipapi.co/json/');
+    const data = await response.json();
+    
+    return {
+      isp: data.org || 'Unknown Provider',
+      location: `${data.city || 'Unknown'}, ${data.country_name || 'Unknown'}`,
+    };
+  } catch (error) {
+    console.error("Error detecting ISP:", error);
+    return {
+      isp: "Unknown Provider",
+      location: "Unknown Location",
+    };
+  }
+}
+
+// Function to measure actual ping
+export async function testPing(): Promise<{ ping: number; jitter: number }> {
+  const pingUrl = 'https://www.google.com'; // A reliable server to ping
+  const pingTimes: number[] = [];
+  const attempts = 5;
+  
+  for (let i = 0; i < attempts; i++) {
+    const start = performance.now();
+    try {
+      await fetch(pingUrl, { 
+        method: 'HEAD',
+        cache: 'no-store',
+        mode: 'no-cors'
       });
-    }, 500);
-  });
+      const end = performance.now();
+      pingTimes.push(end - start);
+    } catch (error) {
+      console.error("Ping test error:", error);
+      // If fetch fails, use a higher value to indicate poor connection
+      pingTimes.push(300);
+    }
+  }
+  
+  // Calculate average ping (excluding the highest value)
+  pingTimes.sort((a, b) => a - b);
+  const validPings = pingTimes.slice(0, pingTimes.length - 1);
+  const avgPing = validPings.reduce((a, b) => a + b, 0) / validPings.length;
+  
+  // Calculate jitter (variation in ping)
+  let jitterSum = 0;
+  for (let i = 1; i < validPings.length; i++) {
+    jitterSum += Math.abs(validPings[i] - validPings[i - 1]);
+  }
+  const jitter = validPings.length > 1 ? jitterSum / (validPings.length - 1) : 0;
+  
+  return { 
+    ping: Math.round(avgPing), 
+    jitter: Math.round(jitter)
+  };
 }
 
-// Function to simulate a ping test
-export function testPing(): Promise<{ ping: number; jitter: number }> {
-  return new Promise((resolve) => {
-    const pingStart = performance.now();
+// Function to test actual download speed
+export async function testDownloadSpeed(options?: SpeedTestOptions): Promise<number> {
+  const fileSizes = [1, 2, 5, 10, 20]; // MB sizes for testing
+  const downloadUrl = 'https://speed.cloudflare.com/__down?bytes=';
+  
+  let totalSpeed = 0;
+  let testsCompleted = 0;
+  const maxTests = fileSizes.length;
+  
+  for (let i = 0; i < maxTests; i++) {
+    const fileSizeMB = fileSizes[i];
+    const fileSizeBytes = fileSizeMB * 1024 * 1024;
     
-    // Simulate network delay with random variation to mimic real-world conditions
-    setTimeout(() => {
-      const ping = Math.floor(Math.random() * 30) + 10; // Random ping between 10-40ms
-      const jitter = Math.floor(Math.random() * 5) + 1; // Random jitter between 1-5ms
+    try {
+      const startTime = performance.now();
       
-      resolve({ ping, jitter });
-    }, Math.random() * 300 + 200);
-  });
-}
-
-// Function to simulate download speed test
-export function testDownloadSpeed(options?: SpeedTestOptions): Promise<number> {
-  return new Promise((resolve) => {
-    const totalSteps = 10;
-    let currentStep = 0;
-    
-    const interval = setInterval(() => {
-      currentStep++;
+      // Request the file with cache-busting
+      const response = await fetch(`${downloadUrl}${fileSizeBytes}&cachebust=${Date.now()}`, {
+        cache: 'no-store',
+      });
+      
+      if (!response.ok) {
+        throw new Error(`Download failed with status: ${response.status}`);
+      }
+      
+      await response.arrayBuffer(); // Read the entire response
+      
+      const endTime = performance.now();
+      const durationSeconds = (endTime - startTime) / 1000;
+      const speedMbps = (fileSizeMB * 8) / durationSeconds; // Convert to Mbps
+      
+      totalSpeed += speedMbps;
+      testsCompleted++;
       
       if (options?.onProgress) {
-        options.onProgress(currentStep / totalSteps, 'download');
+        options.onProgress((i + 1) / maxTests * 100, 'download');
       }
       
-      if (currentStep >= totalSteps) {
-        clearInterval(interval);
-        
-        // Simulated download speed between 10 and 150 Mbps
-        const speed = Math.floor(Math.random() * 140) + 10;
-        resolve(speed);
-      }
-    }, 300);
-  });
+    } catch (error) {
+      console.error("Download test error:", error);
+    }
+  }
+  
+  if (testsCompleted === 0) {
+    return 0; // No successful tests
+  }
+  
+  return totalSpeed / testsCompleted; // Return average speed
 }
 
-// Function to simulate upload speed test
-export function testUploadSpeed(options?: SpeedTestOptions): Promise<number> {
-  return new Promise((resolve) => {
-    const totalSteps = 8;
-    let currentStep = 0;
+// Function to test actual upload speed (simplified)
+export async function testUploadSpeed(options?: SpeedTestOptions): Promise<number> {
+  const uploadSizes = [1, 2, 3]; // MB sizes for testing
+  const uploadUrl = 'https://speed.cloudflare.com/__up';
+  
+  let totalSpeed = 0;
+  let testsCompleted = 0;
+  const maxTests = uploadSizes.length;
+  
+  for (let i = 0; i < maxTests; i++) {
+    const sizeMB = uploadSizes[i];
+    const sizeBytes = sizeMB * 1024 * 1024;
     
-    const interval = setInterval(() => {
-      currentStep++;
+    // Create payload of specified size
+    const payload = new ArrayBuffer(sizeBytes);
+    
+    try {
+      const startTime = performance.now();
+      
+      const response = await fetch(uploadUrl, {
+        method: 'POST',
+        body: payload,
+        cache: 'no-store',
+        headers: {
+          'Content-Type': 'application/octet-stream'
+        }
+      });
+      
+      if (!response.ok) {
+        throw new Error(`Upload failed with status: ${response.status}`);
+      }
+      
+      const endTime = performance.now();
+      const durationSeconds = (endTime - startTime) / 1000;
+      const speedMbps = (sizeMB * 8) / durationSeconds; // Convert to Mbps
+      
+      totalSpeed += speedMbps;
+      testsCompleted++;
       
       if (options?.onProgress) {
-        options.onProgress(currentStep / totalSteps, 'upload');
+        options.onProgress((i + 1) / maxTests * 100, 'upload');
       }
       
-      if (currentStep >= totalSteps) {
-        clearInterval(interval);
-        
-        // Simulated upload speed between 5 and 50 Mbps (typically lower than download)
-        const speed = Math.floor(Math.random() * 45) + 5;
-        resolve(speed);
-      }
-    }, 300);
-  });
+    } catch (error) {
+      console.error("Upload test error:", error);
+    }
+  }
+  
+  if (testsCompleted === 0) {
+    return 0; // No successful tests
+  }
+  
+  return totalSpeed / testsCompleted; // Return average speed
 }
 
 // Main function to run a complete speed test

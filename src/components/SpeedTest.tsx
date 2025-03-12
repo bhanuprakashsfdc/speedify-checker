@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { toast } from "sonner";
-import { Play, Wifi, Upload, Clock, RefreshCw, Check, Info } from 'lucide-react';
+import { Play, Wifi, Upload, Clock, RefreshCw, Info } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import SpeedMeter from './SpeedMeter';
@@ -15,6 +15,7 @@ const SpeedTest: React.FC = () => {
   const [progressPhase, setProgressPhase] = useState<'download' | 'upload' | 'ping'>('download');
   const [testResult, setTestResult] = useState<TestResult | null>(null);
   const [showMoreDetails, setShowMoreDetails] = useState(false);
+  const [hasError, setHasError] = useState(false);
   
   useEffect(() => {
     // Auto-start the test when component mounts
@@ -28,6 +29,10 @@ const SpeedTest: React.FC = () => {
       setTestResult(null);
       setProgress(0);
       setShowMoreDetails(false);
+      setHasError(false);
+      
+      // Show a toast to let the user know the test is starting
+      toast.info("Starting speed test...");
       
       // Run the speed test
       const result = await runSpeedTest({
@@ -39,9 +44,11 @@ const SpeedTest: React.FC = () => {
       
       setTestResult(result);
       setTestComplete(true);
+      toast.success("Speed test completed!");
     } catch (error) {
       console.error("Speed test error:", error);
-      toast.error('An error occurred during the speed test');
+      setHasError(true);
+      toast.error('An error occurred during the speed test. Please try again.');
     } finally {
       setIsLoading(false);
     }
@@ -57,18 +64,39 @@ const SpeedTest: React.FC = () => {
               <div className="text-6xl md:text-8xl font-bold mb-2">
                 {Math.round(progress)}
               </div>
-              <div className="text-xl text-foreground/70">MBPS</div>
+              <div className="text-xl text-foreground/70">
+                {progressPhase === 'download' ? 'DOWNLOAD' : 
+                 progressPhase === 'upload' ? 'UPLOAD' : 'PING'}
+              </div>
             </div>
           )}
           
-          {!isLoading && !testComplete && (
+          {!isLoading && !testComplete && !hasError && (
             <div className="text-center animate-pulse">
               <div className="w-32 h-32 rounded-full bg-primary/20 flex items-center justify-center mx-auto">
                 <Wifi className="w-16 h-16 text-primary" />
               </div>
               <p className="mt-4 text-foreground/70">
-                Testing download speed...
+                Initializing speed test...
               </p>
+            </div>
+          )}
+          
+          {hasError && (
+            <div className="text-center">
+              <div className="w-32 h-32 rounded-full bg-destructive/20 flex items-center justify-center mx-auto">
+                <Wifi className="w-16 h-16 text-destructive" />
+              </div>
+              <p className="mt-4 text-destructive">
+                Connection error. Please try again.
+              </p>
+              <Button 
+                onClick={handleStartTest}
+                className="mt-6 flex items-center bg-primary text-white px-6 py-3 rounded-full hover:bg-primary/90 transition-colors"
+              >
+                <RefreshCw className="mr-2" size={16} />
+                Try Again
+              </Button>
             </div>
           )}
           
