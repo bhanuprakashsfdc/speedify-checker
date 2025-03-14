@@ -15,7 +15,7 @@ interface SpeedMeterProps {
 
 const SpeedMeter: React.FC<SpeedMeterProps> = ({
   value,
-  maxValue = 150,
+  maxValue = 500,
   label,
   unit = 'Mbps',
   size = 'md',

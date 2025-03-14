@@ -21,7 +21,7 @@ const ResultsCard: React.FC<ResultsCardProps> = ({ result }) => {
   const formattedDate = new Date(result.timestamp).toLocaleString();
   
   const handleShare = async () => {
-    const shareText = `My internet speed: Download: ${result.downloadSpeed} Mbps, Upload: ${result.uploadSpeed} Mbps, Ping: ${result.ping} ms | Tested with Speedify`;
+    const shareText = `My internet speed: Download: ${result.downloadSpeed} Mbps, Upload: ${result.uploadSpeed} Mbps, Ping: ${result.ping} ms | Tested with Interent Speed Test`;
     
     try {
       if (navigator.share) {
