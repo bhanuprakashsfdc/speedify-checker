@@ -34,7 +34,7 @@ const Header: React.FC = () => {
       <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
         <div className="flex items-center">
           <h1 className="text-xl font-medium">
-            <span className="text-primary font-bold">Speedify</span>
+            <span className="text-primary font-bold">Interent Speed Test</span>
           </h1>
         </div>
 
@@ -44,19 +44,19 @@ const Header: React.FC = () => {
             onClick={() => scrollToSection('home')}
             className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors"
           >
-            Home
+           <a href='/'> Home</a> 
           </button>
           <button 
             onClick={() => scrollToSection('how-it-works')}
             className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors"
           >
-            How It Works
+            <a href='index.html#how-it-works'> How It Works</a> 
           </button>
           <button 
             onClick={() => scrollToSection('history')}
             className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors"
           >
-            History
+            <a href='index.html#history'> History</a> 
           </button>
         </nav>
 
