@@ -12,14 +12,53 @@
     <meta name="keywords" content="internet speed test, bandwidth test, connection speed, download speed, upload speed, ping test, latency test" />
     <meta name="google-adsense-account" content="ca-pub-9627393799976246">
     <link rel="preload" href="/src/main.tsx" as="script">
+
+    <!-- JSON-LD Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Internet Speed Test",
+      "url": "https://interentspeedtest.com/",
+      "description": "Check your internet speed instantly with our accurate online speed test tool. Measure download, upload speed, and latency.",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Internet Speed Test",
+        "url": "https://interentspeedtest.com/",
+        "logo": "https://interentspeedtest.com/logo.png"
+      },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://interentspeedtest.com/?q={search_term}",
+        "query-input": "required name=search_term"
+      },
+      "sameAs": [
+        "https://www.facebook.com/YourPage",
+        "https://twitter.com/YourProfile",
+        "https://www.linkedin.com/company/YourCompany"
+      ]
+    }
+    </script>
+
   </head>
 
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx" defer></script>
-    <a href="https://www.producthunt.com/posts/interent-speed-test?embed=true&utm_source=badge-featured&utm_medium=badge&utm_souce=badge-interent&#0045;speed&#0045;test" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=942120&theme=light&t=1742006275577" alt="Interent&#0032;Speed&#0032;Test - Test&#0032;Your&#0032;Internet&#0032;Speed&#0032;Instantly | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>
 
-    <!-- Google tag (gtag.js) -->
+    <!-- Lazy Loaded Image -->
+    <a href="https://www.producthunt.com/posts/interent-speed-test?embed=true&utm_source=badge-featured&utm_medium=badge&utm_souce=badge-interent&#0045;speed&#0045;test" target="_blank">
+      <img 
+        src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=942120&theme=light&t=1742006275577" 
+        alt="Interent Speed Test - Test Your Internet Speed Instantly | Product Hunt" 
+        style="width: 250px; height: 54px;" 
+        width="250" 
+        height="54"
+        loading="lazy" 
+      />
+    </a>
+
+    <!-- Google Analytics (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-RLNTE0E8LV"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -28,5 +67,6 @@
 
       gtag('config', 'G-RLNTE0E8LV');
     </script>
+
   </body>
 </html>
