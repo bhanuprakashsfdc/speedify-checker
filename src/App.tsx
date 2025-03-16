@@ -9,6 +9,7 @@ import AboutUs from "./pages/AboutUs";
 import Contact from "./pages/Contact";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsConditions from "./pages/TermsConditions";
+import KeywordDetail from "./components/KeywordList";
 
 const queryClient = new QueryClient();
 
@@ -26,6 +27,7 @@ const App = () => (
             <Route path="/contact.html" element={<Contact />} />
             <Route path="/privacy-policy.html" element={<PrivacyPolicy />} />
             <Route path="/terms.html" element={<TermsConditions />} />
+            <Route path="/keyword/:keyword" element={<KeywordDetail />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
