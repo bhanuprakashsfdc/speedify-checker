@@ -7,7 +7,7 @@ const PrivacyPolicy: React.FC = () => {
   return (
     <div className="flex flex-col min-h-screen">
       <Header />
-      <div className="container mx-auto p-6 flex-grow">
+      <div className="container mx-auto p-6 flex-grow checkview">
         <h1 className="text-3xl font-bold">Privacy Policy</h1>
         <p className="mt-2 text-gray-600">Last updated: March 14, 2025</p>
 

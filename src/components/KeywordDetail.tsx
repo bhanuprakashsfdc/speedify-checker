@@ -20,7 +20,7 @@ const KeywordDetail = () => {
         <title>{`${decodedKeyword} - Fast & Accurate Internet Speed Test`}</title>
         <meta name="description" content={`Learn all about ${decodedKeyword}, how it works, and why it's important for your internet connection.`} />
         <meta name="author" content="Interent Speed Test" />
-        <meta property="og:image" content="/og-image.png" />
+        <meta property="og:image" content="https://interentspeedtest.com/og-image.png" />
         <meta property="og:title" content={`${decodedKeyword} - Fast & Accurate Internet Speed Test`} />
         <meta property="og:description" content={`Learn all about ${decodedKeyword}, how it works, and why it's important for your internet connection.`} />
         <meta name="keywords" content={`${decodedKeyword}, internet speed test, bandwidth test, connection speed, download speed, upload speed, ping test, latency test`} />
