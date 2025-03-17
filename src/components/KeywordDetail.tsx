@@ -2,8 +2,8 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import SpeedTest from "./SpeedTest";
-import AboutApp from "./AboutApp";
+import SpeedTest from "@/components/SpeedTest";
+import AboutApp from "@/components/AboutApp";
 
 const parseKeywordFromUrl = (keyword) => {
   if (!keyword) return "";
