@@ -10,6 +10,7 @@ import Contact from "./pages/Contact";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsConditions from "./pages/TermsConditions";
 import KeywordDetail from "./components/KeywordList";
+import SEO from "./pages/SEO";
 
 const queryClient = new QueryClient();
 
@@ -27,7 +28,7 @@ const App = () => (
             <Route path="/contact.html" element={<Contact />} />
             <Route path="/privacy-policy.html" element={<PrivacyPolicy />} />
             <Route path="/terms.html" element={<TermsConditions />} />
-            <Route path="/keyword/:keyword" element={<KeywordDetail />} />
+            <Route path="/keyword/:keyword" element={<SEO />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

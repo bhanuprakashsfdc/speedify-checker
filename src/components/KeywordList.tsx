@@ -1,6 +1,10 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import keywords from '@/data/keywords';
+import React from "react";
+import { Link } from "react-router-dom";
+import keywords from "@/data/keywords";
+
+const formatKeywordToUrl = (keyword: string) => {
+  return `/keyword/${keyword.toLowerCase().replace(/\s+/g, "-")}.html`;
+};
 
 const KeywordList: React.FC = () => {
   return (
@@ -10,7 +14,7 @@ const KeywordList: React.FC = () => {
         <ul className="list-disc pl-5">
           {keywords.map((keyword, index) => (
             <li key={index} className="mb-2">
-              <Link to={`/keyword/${encodeURIComponent(keyword)}`} className="text-blue-500 hover:underline">
+              <Link to={formatKeywordToUrl(keyword)} className="text-blue-500 hover:underline">
                 {keyword}
               </Link>
             </li>
