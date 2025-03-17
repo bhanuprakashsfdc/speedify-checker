@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { WEBSITENAME } from '../constants/constants';
+import { WEBSITENAME } from '@/constants/constants';
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
   

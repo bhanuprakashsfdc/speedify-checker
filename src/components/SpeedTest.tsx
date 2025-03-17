@@ -4,8 +4,8 @@ import { toast } from "sonner";
 import { Play, Wifi, Upload, Clock, RefreshCw, Info } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
-import SpeedMeter from './SpeedMeter';
-import ResultsCard from './ResultsCard';
+import SpeedMeter from '@/components/SpeedMeter';
+import ResultsCard from '@/components/ResultsCard';
 import { runSpeedTest, TestResult, getSpeedQuality } from '@/lib/speedtest';
 
 const SpeedTest: React.FC = () => {

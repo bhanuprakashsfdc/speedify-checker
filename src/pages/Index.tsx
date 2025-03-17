@@ -5,7 +5,7 @@ import SpeedTest from '@/components/SpeedTest';
 import TestHistory from '@/components/TestHistory';
 import HowItWorks from '@/components/HowItWorks';
 import Footer from '@/components/Footer';
-import AboutApp from '@/components/aboutapp';
+import AboutApp from '@/components/AboutApp';
 
 const Index: React.FC = () => {
   useEffect(() => {
