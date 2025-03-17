@@ -28,7 +28,7 @@ const App = () => (
             <Route path="/contact.html" element={<Contact />} />
             <Route path="/privacy-policy.html" element={<PrivacyPolicy />} />
             <Route path="/terms.html" element={<TermsConditions />} />
-            <Route path="/keyword/:keyword" element={<SEO />} />
+            <Route path="/:keyword" element={<SEO />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
