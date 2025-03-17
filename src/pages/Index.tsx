@@ -5,6 +5,7 @@ import SpeedTest from '@/components/SpeedTest';
 import TestHistory from '@/components/TestHistory';
 import HowItWorks from '@/components/HowItWorks';
 import Footer from '@/components/Footer';
+import AboutApp from '@/components/aboutapp';
 
 const Index: React.FC = () => {
   useEffect(() => {
@@ -27,6 +28,16 @@ const Index: React.FC = () => {
       >
         <div className="container mx-auto">
           <SpeedTest />
+          
+        </div>
+      </section>
+            {/* How It Works Section */}
+            <section 
+        id="how-it-works"
+        className="py-16 px-4 md:px-6 bg-secondary/30"
+      >
+        <div className="container mx-auto">
+        <AboutApp />
         </div>
       </section>
       
@@ -40,7 +51,7 @@ const Index: React.FC = () => {
         </div>
       </section>
       
-      {/* History Section */}
+      {/* History Section 
       <section 
         id="history"
         className="py-16 px-4 md:px-6"
@@ -49,7 +60,7 @@ const Index: React.FC = () => {
           <TestHistory />
         </div>
       </section>
-      
+      */}
       <div className="flex-grow" />
       
       <Footer />
