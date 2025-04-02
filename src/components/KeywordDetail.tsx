@@ -1,5 +1,6 @@
 import React from "react";
 import { useParams } from "react-router-dom";
+import { Helmet } from "react-helmet";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SpeedTest from "@/components/SpeedTest";
@@ -16,16 +17,16 @@ const KeywordDetail = () => {
 
   return (
     <div className="flex min-h-screen flex-col">
-        <head>
-        <title>{`${decodedKeyword} - Fast & Accurate Internet Speed Test`}</title>
-        <meta name="description" content={`Learn all about ${decodedKeyword}, how it works, and why it's important for your internet connection.`} />
-        <meta name="author" content="Interent Speed Test" />
+      <Helmet>
+        <title>{`${decodedKeyword} Speed Test Guide - Internet Speed Test Tool`}</title>
+        <meta name="description" content={`Comprehensive guide about ${decodedKeyword}. Learn how to measure internet speed, understand performance metrics, and optimize your connection for better results.`} />
+        <meta name="author" content="Internet Speed Test" />
         <meta property="og:image" content="https://interentspeedtest.com/og-image.png" />
-        <meta property="og:title" content={`${decodedKeyword} - Fast & Accurate Internet Speed Test`} />
-        <meta property="og:description" content={`Learn all about ${decodedKeyword}, how it works, and why it's important for your internet connection.`} />
-        <meta name="keywords" content={`${decodedKeyword}, internet speed test, bandwidth test, connection speed, download speed, upload speed, ping test, latency test`} />
-        <meta name="google-adsense-account" content="ca-pub-9627393799976246" />
-      </head>
+        <meta property="og:title" content={`${decodedKeyword} Speed Test Guide - Internet Speed Test Tool`} />
+        <meta property="og:description" content={`Comprehensive guide about ${decodedKeyword}. Learn how to measure internet speed, understand performance metrics, and optimize your connection for better results.`} />
+        <meta name="keywords" content={`${decodedKeyword}, internet speed test, bandwidth measurement, connection performance, download speed test, upload speed test, latency test, network diagnostics`} />
+        <link rel="canonical" href={`https://interentspeedtest.com/guide/${keyword}`} />
+      </Helmet>
       <Header />
       <main className="container mx-auto p-6 flex-grow">
         <SpeedTest />
