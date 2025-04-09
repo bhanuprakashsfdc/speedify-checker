@@ -18,7 +18,7 @@ const Footer: React.FC = () => {
           </div>
           
           <div className="text-sm text-muted-foreground">
-            <p><a href="/about.html">About us</a> | <a href="/blogs.html">Blogs</a>  | <a href="/contact.html">Contact</a> | <a href="/privacy-policy.html">Privacy policy</a> | <a href="/terms.html">Terms & conditions </a></p> 
+            <p><a href="/about.html">About us</a> | <a href="/blog.html">Blogs</a>  | <a href="/contact.html">Contact</a> | <a href="/privacy-policy.html">Privacy policy</a> | <a href="/terms.html">Terms & conditions </a></p> 
             © {currentYear} {WEBSITENAME}. All rights reserved and Build by <a href="https://bhanuprakashsfdc.com">Bhanu Prakash</a>.
           </div>
         </div>

@@ -62,7 +62,7 @@ const Header: React.FC = () => {
             onClick={() => scrollToSection('history')}
             className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors"
           >
-            <a href='index.html#history'> Blog</a> 
+            <a href='/blog.html'> Blog</a> 
           </button>
           <button 
             onClick={() => scrollToSection('history')}
