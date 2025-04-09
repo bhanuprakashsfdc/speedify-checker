@@ -58,6 +58,18 @@ const Header: React.FC = () => {
           >
             <a href='index.html#history'> History</a> 
           </button>
+          <button 
+            onClick={() => scrollToSection('history')}
+            className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors"
+          >
+            <a href='index.html#history'> Blog</a> 
+          </button>
+          <button 
+            onClick={() => scrollToSection('history')}
+            className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors"
+          >
+            <a href='index.html#history'> Contact</a> 
+          </button>
         </nav>
 
         {/* Mobile Menu Button */}

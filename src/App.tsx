@@ -11,6 +11,8 @@ import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import TermsConditions from "@/pages/TermsConditions";
 import KeywordDetail from "@/components/KeywordList";
 import SEO from "@/pages/SEO";
+import Blog from "@/pages/Blog";
+import BlogPost from "@/pages/BlogPost";
 
 const queryClient = new QueryClient();
 
@@ -28,7 +30,9 @@ const App = () => (
             <Route path="/contact.html" element={<Contact />} />
             <Route path="/privacy-policy.html" element={<PrivacyPolicy />} />
             <Route path="/terms.html" element={<TermsConditions />} />
-            <Route path="/:keyword" element={<SEO />} />
+            <Route path="/blogs.html" element={<Blog />} />
+            <Route path="/blog/:slug" element={<BlogPost />} />
+           {/* <Route path="/:keyword" element={<SEO />} /> */} 
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
