@@ -34,7 +34,7 @@ const App = () => (
             <Route path="/terms.html" element={<TermsConditions />} />
             <Route path="/blog.html" element={<Blog />} />
             <Route path="/blog/:slug" element={<BlogPost />} />
-           {/* <Route path="/:keyword" element={<SEO />} /> */} 
+            <Route path="/:keyword" element={<SEO />} /> 
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

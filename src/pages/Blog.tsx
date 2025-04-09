@@ -23,20 +23,25 @@ const Blog: React.FC = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Helmet>
-        <title>Salary Calculator Blog | Paycheck & Income Tax Guides</title>
-        <meta name="description" content="Explore our salary calculator blog for expert guides on income tax, take home pay calculation, payroll taxes, and more. Understand your finances better." />
-        <meta name="keywords" content="salary calculator blog, income tax guides, take home pay calculation, paycheck calculator, tax calculator" />
-        <link rel="canonical" href="https://www.ctc-calculator.com/blog.html" />
-      </Helmet>
-      
+        <title>Internet Speed Test Blog | Tips, Tools & Troubleshooting</title>
+        <meta
+          name="description"
+          content="Explore the Internet Speed Test blog for expert articles on WiFi speed, broadband testing, speed tools, connectivity issues, and more."
+        />
+        <meta
+          name="keywords"
+          content="internet speed test blog, wifi speed tips, broadband testing, speed test tools, network troubleshooting"
+        />
+        <link rel="canonical" href="https://www.interentspeedtest.com/blog.html" />
+      </Helmet>      
       <Header />
       
       <main className="flex-grow container mx-auto px-4 py-8">
         <div className="max-w-7xl mx-auto space-y-8">
           <div className="text-center">
-            <h1 className="text-3xl md:text-4xl font-bold">Salary Calculator Blog</h1>
+            <h1 className="text-3xl md:text-4xl font-bold">Internet Speed Test Blog</h1>
             <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
-              Expert guides and articles on salary calculation, income tax, take home pay, and everything you need to understand your finances better.
+              Discover guides and tutorials on internet speed, WiFi optimization, broadband troubleshooting, and how to get the most from your connection.
             </p>
           </div>
           
