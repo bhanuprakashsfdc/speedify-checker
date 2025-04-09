@@ -1,7 +1,6 @@
 import React from "react";
 import { Helmet } from "react-helmet";
 import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 import KeywordDetail from "@/components/KeywordDetail";
 
 const SEO: React.FC = () => {
@@ -20,7 +19,6 @@ const SEO: React.FC = () => {
         <p className="text-lg mb-8">Explore our comprehensive collection of guides about internet speed testing, network performance, and connection optimization.</p>
         <KeywordDetail />
       </main>
-      <Footer />
     </div>
   );
 };
