@@ -81,6 +81,21 @@ const Blog: React.FC = () => {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                     </svg>
                   </Link>
+                  
+                  {/* Related keywords for better internal linking */}
+                  <div className="mt-3 pt-3 border-t border-gray-100">
+                    <div className="flex flex-wrap gap-1">
+                      {post.keywords.slice(0, 4).map((keyword, idx) => (
+                        <Link 
+                          key={idx} 
+                          to={`/keyword/${keyword.toLowerCase().replace(/\s+/g, '-')}.html`}
+                          className="text-xs px-2 py-1 bg-blue-50 text-blue-600 rounded-full hover:bg-blue-100 transition-colors"
+                        >
+                          {keyword}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
                 </div>
               </div>
             ))}
