@@ -4,7 +4,7 @@ import { WEBSITENAME } from "@/constants/constants";
 const AboutApp: React.FC = () => {
   return (
     <div className="container mx-auto px-6 py-12">
-      <h1 className="text-4xl font-bold">{WEBSITENAME} - How It Works</h1>
+      <h2 className="text-4xl font-bold">{WEBSITENAME} - How It Works</h2>
       <p className="mt-4 text-lg text-gray-700">
         {WEBSITENAME} is an online tool designed to test your internet speed instantly.
         It provides detailed insights into your download and upload speeds, latency, and connection stability.

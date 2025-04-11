@@ -1,22 +1,31 @@
-# Welcome to your Lovable project
+# Internet Speed Test Application
+
+## Project Overview
+
+This is a modern, responsive Internet Speed Test application built with React and TypeScript. The application allows users to test their internet connection speed, providing detailed metrics on download speed, upload speed, ping, and jitter.
+
+## Features
+
+- Real-time internet speed testing
+- Accurate measurement of download & upload speeds
+- Ping & latency tracking for gaming and streaming
+- Test history tracking
+- Optimized for both desktop and mobile devices
+- Detailed ISP and location information
+- SEO-optimized pages
+- Blog with speed-related articles
 
 ## Project info
 
-**URL**: https://lovable.dev/projects/1ac98247-7730-4e62-91d5-485e35192b21
+This is a speed testing application built with modern web technologies.
 
 ## How can I edit this code?
 
 There are several ways of editing your application.
 
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/1ac98247-7730-4e62-91d5-485e35192b21) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
 **Use your preferred IDE**
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+If you want to work locally using your own IDE, you can clone this repo and push changes.
 
 The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
 
@@ -50,20 +59,34 @@ npm run dev
 - Click on "New codespace" to launch a new Codespace environment.
 - Edit files directly within the Codespace and commit and push your changes once you're done.
 
-## What technologies are used for this project?
+## Technologies Used
 
-This project is built with .
+This project is built with:
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+- Vite - Fast build tool and development server
+- TypeScript - Type-safe JavaScript
+- React - UI library
+- React Router - For page navigation
+- shadcn-ui - Component library
+- Tailwind CSS - Utility-first CSS framework
+- React Query - Data fetching and state management
+- React Helmet - Document head manager
 
 ## How can I deploy this project?
 
-Simply open [Lovable](https://lovable.dev/projects/1ac98247-7730-4e62-91d5-485e35192b21) and click on Share -> Publish.
+You can deploy this project using any static site hosting service like Netlify, Vercel, or GitHub Pages.
+
+```sh
+# Build the project
+npm run build
+
+# The build output will be in the dist/ directory
+```
 
 ## I want to use a custom domain - is that possible?
 
-We don't support custom domains (yet). If you want to deploy your project under your own domain then we recommend using Netlify. Visit our docs for more details: [Custom domains](https://docs.lovable.dev/tips-tricks/custom-domain/)
+Yes! When deploying to services like Netlify, Vercel, or GitHub Pages, you can configure a custom domain. Each service has its own documentation on how to set up custom domains for your projects.
+
+## Author
+
+This project is maintained by [bhanuprakashsfdc](https://github.com/bhanuprakashsfdc).
