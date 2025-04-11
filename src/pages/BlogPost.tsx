@@ -1,10 +1,11 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { blogPosts } from '@/data/blogPosts';
 import SpeedTest from '@/components/SpeedTest';
+import { addInternalLinks, getRelatedPosts, getRelatedKeywords, formatKeywordToUrl, formatBlogToUrl } from '@/lib/internalLinking';
 
 const BlogPost: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -117,22 +118,72 @@ const BlogPost: React.FC = () => {
           <SpeedTest />
 
           <div className="prose prose-lg max-w-none">
-            <div dangerouslySetInnerHTML={{ __html: post.content }} />
+            <div dangerouslySetInnerHTML={{ __html: addInternalLinks(post.content) }} />
           </div>
 
           <div className="pt-6 border-t">
             <h3 className="text-lg font-semibold mb-2">Related Topics</h3>
             <div className="flex flex-wrap gap-2">
               {post.keywords.map((keyword, index) => (
-                <span
+                <Link
                   key={index}
-                  className="px-3 py-1 bg-muted rounded-full text-sm"
+                  to={formatKeywordToUrl(keyword)}
+                  className="px-3 py-1 bg-muted rounded-full text-sm hover:bg-muted/80 transition-colors"
                 >
                   {keyword}
-                </span>
+                </Link>
               ))}
             </div>
           </div>
+          
+          {/* Related Posts Section */}
+          {useMemo(() => {
+            const relatedPosts = getRelatedPosts(post.slug, post.keywords);
+            if (relatedPosts.length > 0) {
+              return (
+                <div className="pt-6 border-t">
+                  <h3 className="text-lg font-semibold mb-4">Related Articles</h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    {relatedPosts.map((relatedPost) => (
+                      <Link 
+                        key={relatedPost.id}
+                        to={formatBlogToUrl(relatedPost.slug)}
+                        className="p-4 border rounded-lg hover:bg-muted/50 transition-colors"
+                      >
+                        <h4 className="font-medium text-base mb-2">{relatedPost.title}</h4>
+                        <p className="text-sm text-muted-foreground">{relatedPost.excerpt.substring(0, 100)}...</p>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              );
+            }
+            return null;
+          }, [post.slug, post.keywords])}
+          
+          {/* Additional Keywords Section */}
+          {useMemo(() => {
+            const additionalKeywords = getRelatedKeywords(post.keywords);
+            if (additionalKeywords.length > 0) {
+              return (
+                <div className="pt-6 border-t">
+                  <h3 className="text-lg font-semibold mb-2">Explore More</h3>
+                  <div className="flex flex-wrap gap-2">
+                    {additionalKeywords.map((keyword, index) => (
+                      <Link
+                        key={index}
+                        to={formatKeywordToUrl(keyword)}
+                        className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm hover:bg-blue-200 transition-colors"
+                      >
+                        {keyword}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              );
+            }
+            return null;
+          }, [post.keywords])}
 
           <div className="pt-6 border-t">
             <h3 className="text-lg font-semibold mb-3">Share This Article</h3>

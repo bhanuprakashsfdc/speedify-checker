@@ -1,10 +1,12 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SpeedTest from "@/components/SpeedTest";
 import AboutApp from "@/components/AboutApp";
+import { blogPosts } from "@/data/blogPosts";
+import { formatBlogToUrl } from "@/lib/internalLinking";
 
 const parseKeywordFromUrl = (keyword) => {
   if (!keyword) return "";
@@ -46,6 +48,29 @@ const KeywordDetail = () => {
             Whether you're streaming your favorite shows, attending virtual meetings, or gaming online, internet speed plays a crucial role in your experience.
             This is where speed tests come in. But how do they work? And how can you ensure accurate results?
           </p>
+        </section>
+        
+        {/* Related Blog Posts */}
+        <section className="mb-8">
+          <h2 className="text-2xl font-semibold mb-4">Related Articles</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {blogPosts
+              .filter(post => post.keywords.some(k => 
+                k.toLowerCase().includes(decodedKeyword.toLowerCase()) || 
+                decodedKeyword.toLowerCase().includes(k.toLowerCase())
+              ))
+              .slice(0, 4)
+              .map(post => (
+                <Link 
+                  key={post.id}
+                  to={formatBlogToUrl(post.slug)}
+                  className="p-4 border rounded-lg hover:bg-muted/50 transition-colors"
+                >
+                  <h3 className="font-medium text-lg mb-2">{post.title}</h3>
+                  <p className="text-sm text-muted-foreground">{post.excerpt.substring(0, 100)}...</p>
+                </Link>
+              ))}
+          </div>
         </section>
         
         <section className="mb-6">
