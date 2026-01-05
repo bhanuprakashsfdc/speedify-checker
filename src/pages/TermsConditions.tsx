@@ -13,66 +13,72 @@ const TermsConditions: React.FC = () => {
         <p className="mt-2 text-gray-600">Last updated: March 14, 2025</p>
 
         <p className="mt-4">
-          Please read these terms and conditions carefully before using our service.
+          These Terms and Conditions ("Terms") govern your access to and use of <strong>interentspeedtest.com</strong> and
+          any content, features, or services provided by {WEBSITENAME}. By using the Service, you agree to be bound by these
+          Terms. If you do not agree, you should not use the Service.
         </p>
 
-        <h2 className="mt-6 text-xl font-semibold">Interpretation and Definitions</h2>
-        <p>
-          The words with capitalized initial letters have defined meanings under the following conditions. The same definitions apply regardless of singular or plural usage.
-        </p>
-
-        <h3 className="mt-4 font-semibold">Definitions</h3>
+        <h2 className="mt-6 text-xl font-semibold">Definitions</h2>
         <ul className="list-disc pl-6">
-          <li>
-            <strong>Company</strong> (referred to as "We", "Us", or "Our") refers to {WEBSITENAME}.
-          </li>
-          <li>
-            <strong>Service</strong> refers to the website accessible from our domain.
-          </li>
-          <li>
-            <strong>Device</strong> means any device such as a computer, mobile phone, or tablet that can access our Service.
-          </li>
-          <li>
-            <strong>You</strong> means the individual accessing our Service or the company/legal entity on whose behalf such individual is using our Service.
-          </li>
+          <li><strong>Service</strong>: The website, content, tools, and related functionality provided by {WEBSITENAME}.</li>
+          <li><strong>Device</strong>: Any device capable of accessing the Service, including computers, phones, or tablets.</li>
+          <li><strong>User</strong> ("you"): Any individual or entity that accesses or uses the Service.</li>
         </ul>
 
-        <h2 className="mt-6 text-xl font-semibold">Acknowledgment</h2>
+        <h2 className="mt-6 text-xl font-semibold">Acceptable Use</h2>
+        <ul className="list-disc pl-6">
+          <li>Do not interfere with the proper operation of the Service or attempt to access it using automated means beyond normal browsing.</li>
+          <li>Do not introduce malware, attempt to breach security, or engage in any activity that could harm the Service or other users.</li>
+          <li>Do not use the Service to violate any applicable laws or regulations.</li>
+        </ul>
+
+        <h2 className="mt-6 text-xl font-semibold">Intellectual Property</h2>
         <p>
-          These Terms govern the use of this Service and form a binding agreement between You and {WEBSITENAME}.
-        </p>
-        <p>
-          By accessing or using the Service, you agree to be bound by these Terms. If you do not agree, you may not access the Service.
+          The content, design, and functionality of the Service are owned by or licensed to {WEBSITENAME}. You may not copy,
+          distribute, modify, or create derivative works without written permission, except as permitted by applicable law.
         </p>
 
         <h2 className="mt-6 text-xl font-semibold">Links to Other Websites</h2>
         <p>
-          Our Service may contain links to third-party websites that are not controlled by {WEBSITENAME}. We take no responsibility for their content or policies.
+          The Service may include links to third-party websites. We are not responsible for their content, policies, or
+          practices. Visiting those sites is at your own risk.
         </p>
 
-        <h2 className="mt-6 text-xl font-semibold">Termination</h2>
+        <h2 className="mt-6 text-xl font-semibold">Availability and Changes</h2>
         <p>
-          We may terminate or suspend your access to the Service without notice for any breach of these Terms.
+          We may update, modify, or suspend parts of the Service at any time, including for maintenance or improvements.
+          We make reasonable efforts to provide a reliable experience but do not guarantee uninterrupted availability.
+        </p>
+
+        <h2 className="mt-6 text-xl font-semibold">Disclaimer</h2>
+        <p>
+          The Service is provided on an "as is" and "as available" basis. While we aim for accurate measurements, results
+          can vary due to factors outside our control (device, network conditions, routing, congestion). Use the results
+          as a practical guide rather than a guarantee.
         </p>
 
         <h2 className="mt-6 text-xl font-semibold">Limitation of Liability</h2>
         <p>
-          To the fullest extent permitted by law, {WEBSITENAME} shall not be liable for indirect, incidental, or consequential damages.
+          To the maximum extent permitted by law, {WEBSITENAME} is not liable for indirect, incidental, special, or
+          consequential damages arising from your use of the Service. Our total liability for any claim is limited to the
+          amount (if any) you paid to use the Service.
         </p>
 
         <h2 className="mt-6 text-xl font-semibold">Governing Law</h2>
         <p>
-          These Terms shall be governed by the laws of India, without regard to conflict of law provisions.
+          These Terms are governed by the laws of India, without regard to conflict of law rules. Disputes shall be
+          resolved in the courts of the jurisdiction where {WEBSITENAME} operates.
         </p>
 
         <h2 className="mt-6 text-xl font-semibold">Changes to These Terms</h2>
         <p>
-          We reserve the right to modify these Terms at any time. Changes will be posted on our website, and continued use of the Service after updates constitutes acceptance of the new terms.
+          We may revise these Terms from time to time. The most current version will be posted on the Service with the
+          effective date. Continued use after changes indicates acceptance of the updated Terms.
         </p>
 
         <h2 className="mt-6 text-xl font-semibold">Contact Us</h2>
         <p>
-          If you have any questions about these Terms and Conditions, you can contact us at <a href={EMAILURL} className="text-blue-500 underline">{EMAIL}</a>.
+          For questions about these Terms, contact us at <a href={EMAILURL} className="text-blue-500 underline">{EMAIL}</a>.
         </p>
       </div>
       <Footer />
