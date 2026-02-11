@@ -6,6 +6,7 @@ import TestHistory from '@/components/TestHistory';
 import HowItWorks from '@/components/HowItWorks';
 import Footer from '@/components/Footer';
 import AboutApp from '@/components/AboutApp';
+import { DynamicSEO, webApplicationSchema, faqPageSchema } from '@/pages/SEO'; // Import DynamicSEO and schemas
 
 const Index: React.FC = () => {
   useEffect(() => {
@@ -19,6 +20,20 @@ const Index: React.FC = () => {
 
   return (
     <div className="flex min-h-screen flex-col">
+      <DynamicSEO
+        title="Internet Speed Test - Fast & Accurate Online Speed Test Tool"
+        description="Get instant, accurate measurements of your internet connection speed. Test download speed, upload speed, ping, and jitter with our professional speed test tool."
+        canonicalUrl="https://www.interentspeedtest.com/"
+        ogUrl="https://www.interentspeedtest.com/"
+        ogImage="https://www.interentspeedtest.com/og-image.png"
+        twitterUrl="https://www.interentspeedtest.com/"
+        twitterTitle="Internet Speed Test - Fast & Accurate Online Speed Test Tool"
+        twitterDescription="Get instant, accurate measurements of your internet connection speed. Test download speed, upload speed, ping, and jitter with our professional speed test tool."
+        twitterImage="https://www.interentspeedtest.com/og-image.png"
+        twitterCreator="@SpeedifyChecker"
+        twitterSite="@SpeedifyChecker"
+        jsonLd={[webApplicationSchema, faqPageSchema]}
+      />
       <Header />
       
       {/* Hero Section */}

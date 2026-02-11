@@ -23,11 +23,24 @@ const KeywordDetail = () => {
         <title>{`${decodedKeyword} Speed Test Guide - Internet Speed Test Tool`}</title>
         <meta name="description" content={`Comprehensive guide about ${decodedKeyword}. Learn how to measure internet speed, understand performance metrics, and optimize your connection for better results.`} />
         <meta name="author" content="Internet Speed Test" />
-        <meta property="og:image" content="https://interentspeedtest.com/og-image.png" />
+        <link rel="canonical" href={`https://www.interentspeedtest.com/guide/${keyword}`} />
+
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content={`https://www.interentspeedtest.com/guide/${keyword}`} />
         <meta property="og:title" content={`${decodedKeyword} Speed Test Guide - Internet Speed Test Tool`} />
         <meta property="og:description" content={`Comprehensive guide about ${decodedKeyword}. Learn how to measure internet speed, understand performance metrics, and optimize your connection for better results.`} />
+        <meta property="og:image" content="https://interentspeedtest.com/og-image.png" />
+
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:url" content={`https://www.interentspeedtest.com/guide/${keyword}`} />
+        <meta name="twitter:title" content={`${decodedKeyword} Speed Test Guide - Internet Speed Test Tool`} />
+        <meta name="twitter:description" content={`Comprehensive guide about ${decodedKeyword}. Learn how to measure internet speed, understand performance metrics, and optimize your connection for better results.`} />
+        <meta name="twitter:image" content="https://interentspeedtest.com/og-image.png" />
+        <meta name="twitter:creator" content="@SpeedifyChecker" />
+        <meta name="twitter:site" content="@SpeedifyChecker" />
         <meta name="keywords" content={`${decodedKeyword}, internet speed test, bandwidth measurement, connection performance, download speed test, upload speed test, latency test, network diagnostics`} />
-        <link rel="canonical" href={`https://interentspeedtest.com/guide/${keyword}`} />
       </Helmet>
       <Header />
       <main className="container mx-auto p-6 flex-grow">

@@ -1,11 +1,11 @@
 import React, { useEffect, useMemo } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { blogPosts } from '@/data/blogPosts';
 import SpeedTest from '@/components/SpeedTest';
 import { addInternalLinks, getRelatedPosts, getRelatedKeywords, formatKeywordToUrl, formatBlogToUrl } from '@/lib/internalLinking';
+import { DynamicSEO } from '@/pages/SEO';
 
 const BlogPost: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -39,43 +39,43 @@ const BlogPost: React.FC = () => {
     day: 'numeric'
   });
 
+  const blogPostingSchema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": post.title,
+    "image": post.coverImage,
+    "datePublished": post.date,
+    "author": {
+      "@type": "Person",
+      "name": post.author
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Internet Speed Test",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.interentspeedtest.com/favicon.ico"
+      }
+    },
+    "description": post.excerpt
+  };
+
   return (
     <div className="min-h-screen flex flex-col">
-      <Helmet>
-        <title>{post.title} | Internet Speed Test Blog</title>
-        <meta name="description" content={post.excerpt} />
-        <meta name="keywords" content={post.keywords.join(', ')} />
-        <link rel="canonical" href={`https://www.interentspeedtest.com/blog/${post.slug}.html`} />
-        <meta property="og:title" content={post.title} />
-        <meta property="og:description" content={post.excerpt} />
-        <meta property="og:type" content="article" />
-        <meta property="og:image" content={post.coverImage} />
-        <meta name="twitter:title" content={post.title} />
-        <meta name="twitter:description" content={post.excerpt} />
-        <meta name="twitter:image" content={post.coverImage} />
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BlogPosting",
-            "headline": post.title,
-            "image": post.coverImage,
-            "datePublished": post.date,
-            "author": {
-              "@type": "Person",
-              "name": post.author
-            },
-            "publisher": {
-              "@type": "Organization",
-              "name": "Internet Speed Test",
-              "logo": {
-                "@type": "ImageObject",
-                "url": "https://www.interentspeedtest.com/favicon.ico"
-              }
-            },
-            "description": post.excerpt
-          })}
-        </script>
-      </Helmet>
+      <DynamicSEO
+        title={`${post.title} | Internet Speed Test Blog`}
+        description={post.excerpt}
+        keywords={post.keywords.join(', ')}
+        canonicalUrl={`https://www.interentspeedtest.com/blog/${post.slug}.html`}
+        ogUrl={`https://www.interentspeedtest.com/blog/${post.slug}.html`}
+        ogImage={post.coverImage}
+        ogTitle={post.title}
+        ogDescription={post.excerpt}
+        twitterTitle={post.title}
+        twitterDescription={post.excerpt}
+        twitterImage={post.coverImage}
+        jsonLd={[blogPostingSchema]}
+      />
 
       <Header />
 

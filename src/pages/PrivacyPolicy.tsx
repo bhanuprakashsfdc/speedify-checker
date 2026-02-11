@@ -2,10 +2,24 @@ import React from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { WEBSITENAME, EMAIL, EMAILURL } from "@/constants/constants";
+import { DynamicSEO } from '@/pages/SEO';
 
 const PrivacyPolicy: React.FC = () => {
   return (
     <div className="flex flex-col min-h-screen">
+      <DynamicSEO
+        title={`Privacy Policy - ${WEBSITENAME}`}
+        description={`Read the privacy policy for ${WEBSITENAME} to understand how we collect, use, and protect your information when you use our internet speed test services.`}
+        canonicalUrl="https://www.interentspeedtest.com/privacy-policy.html"
+        ogUrl="https://www.interentspeedtest.com/privacy-policy.html"
+        ogImage="https://www.interentspeedtest.com/og-image.png"
+        twitterUrl="https://www.interentspeedtest.com/privacy-policy.html"
+        twitterTitle={`Privacy Policy - ${WEBSITENAME}`}
+        twitterDescription={`Read the privacy policy for ${WEBSITENAME} to understand how we collect, use, and protect your information when you use our internet speed test services.`}
+        twitterImage="https://www.interentspeedtest.com/og-image.png"
+        twitterCreator="@SpeedifyChecker"
+        twitterSite="@SpeedifyChecker"
+      />
       <Header />
       <div className="container mx-auto p-6 flex-grow checkview">
         <h1 className="text-3xl font-bold">Privacy Policy</h1>

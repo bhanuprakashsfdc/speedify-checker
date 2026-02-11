@@ -2,9 +2,24 @@ import React from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { WEBSITENAME } from "@/constants/constants";
+import { DynamicSEO } from '@/pages/SEO';
+
 const AboutUs: React.FC = () => {
   return (
     <div className="flex min-h-screen flex-col">
+      <DynamicSEO
+        title={`About Us - ${WEBSITENAME}`}
+        description={`Learn more about ${WEBSITENAME}, our mission to provide accurate internet speed tests, and our commitment to transparency and user education.`}
+        canonicalUrl="https://www.interentspeedtest.com/about-us.html"
+        ogUrl="https://www.interentspeedtest.com/about-us.html"
+        ogImage="https://www.interentspeedtest.com/og-image.png"
+        twitterUrl="https://www.interentspeedtest.com/about-us.html"
+        twitterTitle={`About Us - ${WEBSITENAME}`}
+        twitterDescription={`Learn more about ${WEBSITENAME}, our mission to provide accurate internet speed tests, and our commitment to transparency and user education.`}
+        twitterImage="https://www.interentspeedtest.com/og-image.png"
+        twitterCreator="@SpeedifyChecker"
+        twitterSite="@SpeedifyChecker"
+      />
       <Header />
 
       <div className="container mx-auto p-6 flex-grow checkview">

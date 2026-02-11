@@ -3,10 +3,24 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { WEBSITENAME, EMAIL, EMAILURL } from "@/constants/constants";
 import './pages.css';
+import { DynamicSEO } from '@/pages/SEO';
 
 const TermsConditions: React.FC = () => {
   return (
     <div className="flex flex-col min-h-screen">
+      <DynamicSEO
+        title={`Terms and Conditions - ${WEBSITENAME}`}
+        description={`Read the Terms and Conditions for ${WEBSITENAME}. Understand your rights and obligations when using our internet speed test services.`}
+        canonicalUrl="https://www.interentspeedtest.com/terms-conditions.html"
+        ogUrl="https://www.interentspeedtest.com/terms-conditions.html"
+        ogImage="https://www.interentspeedtest.com/og-image.png"
+        twitterUrl="https://www.interentspeedtest.com/terms-conditions.html"
+        twitterTitle={`Terms and Conditions - ${WEBSITENAME}`}
+        twitterDescription={`Read the Terms and Conditions for ${WEBSITENAME}. Understand your rights and obligations when using our internet speed test services.`}
+        twitterImage="https://www.interentspeedtest.com/og-image.png"
+        twitterCreator="@SpeedifyChecker"
+        twitterSite="@SpeedifyChecker"
+      />
       <Header />
       <div className="container mx-auto p-6 flex-grow checkview">
         <h1 className="text-3xl font-bold">Terms and Conditions</h1>

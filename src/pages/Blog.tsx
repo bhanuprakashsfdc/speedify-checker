@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { blogPosts } from '@/data/blogPosts';
+import { DynamicSEO } from '@/pages/SEO';
 
 const Blog: React.FC = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -22,18 +22,19 @@ const Blog: React.FC = () => {
   
   return (
     <div className="min-h-screen flex flex-col">
-      <Helmet>
-        <title>Internet Speed Test Blog | Tips, Tools & Troubleshooting</title>
-        <meta
-          name="description"
-          content="Explore the Internet Speed Test blog for expert articles on WiFi speed, broadband testing, speed tools, connectivity issues, and more."
-        />
-        <meta
-          name="keywords"
-          content="internet speed test blog, wifi speed tips, broadband testing, speed test tools, network troubleshooting"
-        />
-        <link rel="canonical" href="https://www.interentspeedtest.com/blog.html" />
-      </Helmet>      
+      <DynamicSEO
+        title="Internet Speed Test Blog | Tips, Tools & Troubleshooting"
+        description="Explore the Internet Speed Test blog for expert articles on WiFi speed, broadband testing, speed tools, connectivity issues, and more."
+        canonicalUrl="https://www.interentspeedtest.com/blog.html"
+        ogUrl="https://www.interentspeedtest.com/blog.html"
+        ogImage="https://www.interentspeedtest.com/og-image.png"
+        twitterUrl="https://www.interentspeedtest.com/blog.html"
+        twitterTitle="Internet Speed Test Blog | Tips, Tools & Troubleshooting"
+        twitterDescription="Explore the Internet Speed Test blog for expert articles on WiFi speed, broadband testing, speed tools, connectivity issues, and more."
+        twitterImage="https://www.interentspeedtest.com/og-image.png"
+        twitterCreator="@SpeedifyChecker"
+        twitterSite="@SpeedifyChecker"
+      />      
       <Header />
       
       <main className="flex-grow container mx-auto px-4 py-8">

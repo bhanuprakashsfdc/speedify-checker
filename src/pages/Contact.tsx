@@ -1,12 +1,26 @@
 import React from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { EMAIL, EMAILURL } from "@/constants/constants";
+import { EMAIL, EMAILURL, WEBSITENAME } from "@/constants/constants";
+import { DynamicSEO } from '@/pages/SEO';
 
 const Contact: React.FC = () => {
   return (
     <div>
     <div className="flex min-h-screen flex-col">
+      <DynamicSEO
+        title={`Contact Us - ${WEBSITENAME}`}
+        description={`Have questions or feedback? Contact ${WEBSITENAME} for support regarding speed tests, site content, or general inquiries.`}
+        canonicalUrl="https://www.interentspeedtest.com/contact.html"
+        ogUrl="https://www.interentspeedtest.com/contact.html"
+        ogImage="https://www.interentspeedtest.com/og-image.png"
+        twitterUrl="https://www.interentspeedtest.com/contact.html"
+        twitterTitle={`Contact Us - ${WEBSITENAME}`}
+        twitterDescription={`Have questions or feedback? Contact ${WEBSITENAME} for support regarding speed tests, site content, or general inquiries.`}
+        twitterImage="https://www.interentspeedtest.com/og-image.png"
+        twitterCreator="@SpeedifyChecker"
+        twitterSite="@SpeedifyChecker"
+      />
       <Header /> 
     </div>
     <div>
