@@ -12,47 +12,108 @@ const PrivacyPolicy: React.FC = () => {
         <p className="mt-2 text-gray-600">Last updated: March 14, 2025</p>
 
         <p className="mt-4">
-          At {WEBSITENAME}, we respect your privacy and are committed to protecting your personal data. This Privacy Policy explains how we collect, use, and disclose information about you when you visit our website.
+          This Privacy Policy describes how {WEBSITENAME} ("we", "us", or "our") collects, uses, and shares
+          information when you visit <strong>interentspeedtest.com</strong> or use our services. We are committed to
+          handling data responsibly, transparently, and in compliance with applicable laws.
         </p>
 
         <h2 className="mt-6 text-xl font-semibold">Information We Collect</h2>
         <ul className="list-disc pl-6">
-          <li><strong>Personal Data:</strong> When you contact us, subscribe to a newsletter, or use our services, we may collect your name, email address, and other details.</li>
-          <li><strong>Usage Data:</strong> We automatically collect information on how you interact with our website, including IP addresses, browser type, and pages visited.</li>
-          <li><strong>Cookies:</strong> We use cookies to enhance your browsing experience and analyze website performance.</li>
+          <li>
+            <strong>Personal Information:</strong> If you contact us (e.g., via email), we may collect your name,
+            email address, and the content of your message.
+          </li>
+          <li>
+            <strong>Usage Data:</strong> We collect non-identifying information about your interactions with our site,
+            such as IP address, device type, browser version, pages visited, and referring/exit pages.
+          </li>
+          <li>
+            <strong>Cookies and Similar Technologies:</strong> We and our partners use cookies to maintain site
+            functionality, remember preferences, measure performance, and, where applicable, serve relevant ads.
+          </li>
         </ul>
 
         <h2 className="mt-6 text-xl font-semibold">How We Use Your Information</h2>
-        <p>We use your information to:</p>
         <ul className="list-disc pl-6">
-          <li>Provide, operate, and maintain our website.</li>
-          <li>Improve and personalize user experience.</li>
-          <li>Send updates, marketing communications, or important notices.</li>
-          <li>Analyze website performance and detect security risks.</li>
+          <li>Operate, maintain, and improve site functionality and user experience.</li>
+          <li>Respond to inquiries and provide customer support.</li>
+          <li>Analyze aggregate usage to understand performance and reliability.</li>
+          <li>Comply with legal obligations and enforce our policies.</li>
         </ul>
 
-        <h2 className="mt-6 text-xl font-semibold">Sharing of Information</h2>
-        <p>We do not sell, trade, or rent your personal information. However, we may share data with:</p>
+        <h2 className="mt-6 text-xl font-semibold">Advertising and Google AdSense</h2>
+        <p>
+          We may use <strong>Google AdSense</strong> to display ads. Google, as a third-party vendor, uses cookies to serve
+          ads on our site. Google’s use of advertising cookies enables it and its partners to serve ads to users based on
+          their visits to this and other websites. You can opt out of personalized advertising by visiting Google’s Ads
+          Settings or <a href="https://www.aboutads.info/choices" className="text-blue-500 underline" target="_blank" rel="noopener noreferrer">AboutAds</a>.
+        </p>
         <ul className="list-disc pl-6">
-          <li>Trusted third-party service providers for website operations.</li>
-          <li>Law enforcement if required by law.</li>
+          <li>
+            Third-party vendors, including Google, may use cookies to serve ads based on your prior visits.
+          </li>
+          <li>
+            You may opt out of personalized ads from some third-party vendors via the <a href="https://www.aboutads.info/choices" className="text-blue-500 underline" target="_blank" rel="noopener noreferrer">AboutAds</a> page.
+          </li>
+          <li>
+            For more information, review <a href="https://policies.google.com/technologies/ads" className="text-blue-500 underline" target="_blank" rel="noopener noreferrer">Google’s Advertising Policies</a>.
+          </li>
         </ul>
+
+        <h2 className="mt-6 text-xl font-semibold">Cookies and Controls</h2>
+        <p>
+          Cookies are small files stored on your device. We use them to remember preferences, improve performance, and
+          support essential features. You can manage cookies through your browser settings and, where available, through
+          consent tools displayed on the site. Disabling cookies may affect certain functionalities.
+        </p>
+
+        <h2 className="mt-6 text-xl font-semibold">Data Sharing</h2>
+        <p>
+          We do not sell personal information. We may share limited data with service providers who help operate our
+          website (e.g., hosting, security, analytics) under confidentiality obligations. We may also share information
+          if required by law or to protect our rights and users.
+        </p>
 
         <h2 className="mt-6 text-xl font-semibold">Your Rights</h2>
-        <p>You have the right to:</p>
         <ul className="list-disc pl-6">
-          <li>Access, correct, or delete your personal data.</li>
-          <li>Opt-out of marketing emails at any time.</li>
+          <li>Access, correct, or delete personal information you have provided.</li>
+          <li>Opt out of certain processing, including personalized advertising, where applicable.</li>
+          <li>
+            For residents of regions with specific privacy laws (e.g., GDPR, CCPA/CPRA), additional rights may apply.
+            Contact us to exercise these rights.
+          </li>
         </ul>
 
-        <h2 className="mt-6 text-xl font-semibold">Security</h2>
-        <p>We take reasonable measures to protect your data. However, no method of transmission over the internet is 100% secure.</p>
+        <h2 className="mt-6 text-xl font-semibold">Data Retention and Security</h2>
+        <p>
+          We retain personal information only as long as necessary for the purposes described in this policy or as
+          required by law. We use reasonable safeguards to protect data; however, no method of transmission or storage is
+          completely secure.
+        </p>
+
+        <h2 className="mt-6 text-xl font-semibold">Children’s Privacy</h2>
+        <p>
+          Our services are not directed to children under 13. We do not knowingly collect personal information from
+          children. If you believe a child has provided us with personal data, please contact us so we can delete it.
+        </p>
+
+        <h2 className="mt-6 text-xl font-semibold">Links to Other Websites</h2>
+        <p>
+          Our site may contain links to external websites. We are not responsible for the privacy practices or content of
+          those sites. Please review their policies before providing any information.
+        </p>
 
         <h2 className="mt-6 text-xl font-semibold">Changes to This Policy</h2>
-        <p>We may update this Privacy Policy from time to time. Any changes will be posted on this page.</p>
+        <p>
+          We may update this Privacy Policy to reflect changes to our practices. Updates will be posted on this page
+          with a new effective date.
+        </p>
 
         <h2 className="mt-6 text-xl font-semibold">Contact Us</h2>
-        <p>If you have any questions about this Privacy Policy, contact us at <a href={EMAILURL} className="text-blue-500 underline">{EMAIL}</a>.</p>
+        <p>
+          If you have questions or requests related to privacy, contact us at
+          <a href={EMAILURL} className="text-blue-500 underline"> {EMAIL}</a>.
+        </p>
       </div>
       <Footer />
     </div>
